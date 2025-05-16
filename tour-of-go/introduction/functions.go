@@ -1,4 +1,4 @@
-package functions
+package introduction
 
 import "fmt"
 
@@ -38,7 +38,7 @@ func split(sum int) (x, y int) {
 	return
 }
 
-func Example() {
+func Functions() {
 	fmt.Println(add(42, 13))
 
 	a, b := swap("hello", "world")
