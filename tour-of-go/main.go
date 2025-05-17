@@ -1,6 +1,7 @@
 package main
 
 import (
+	"tour-of-go/flowcontrol"
 	"tour-of-go/introduction"
 )
 
@@ -12,4 +13,9 @@ func main() {
 	introduction.Variables()
 	introduction.Types()
 	introduction.Constants()
+
+	flowcontrol.Loops()
+	flowcontrol.Conditionals()
+	flowcontrol.Switch()
+	flowcontrol.Defer()
 }
