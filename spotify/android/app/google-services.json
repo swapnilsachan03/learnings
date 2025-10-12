@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "802141434169",
+    "project_id": "spotify-clone-swapnil",
+    "storage_bucket": "spotify-clone-swapnil.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802141434169:android:302f65e666ddbc6212f8e8",
+        "android_client_info": {
+          "package_name": "com.example.spotify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApVGjy7WfpB8R-HOPtPJwJhsa3NGpgVoU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
