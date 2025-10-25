@@ -39,6 +39,7 @@ class DiscoverSongs extends StatelessWidget {
     return ListView.separated(
       scrollDirection: Axis.horizontal,
       shrinkWrap: true,
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       itemCount: songs.length,
       itemBuilder: (context, index) {
         final song = songs[index];

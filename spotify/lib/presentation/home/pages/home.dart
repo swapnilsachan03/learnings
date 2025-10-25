@@ -49,21 +49,27 @@ class _HomePageState extends State<HomePage>
   Widget _homepageHeroCard() {
     return Center(
       child: SizedBox(
-        height: 150,
-        child: Stack(
-          children: [
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: SvgPicture.asset(AppVectors.homepageHeroCard),
-            ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Padding(
-                padding: const EdgeInsets.only(right: 60),
-                child: Image.asset(AppImages.homepageHeroImg),
+        height: 165,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Stack(
+            children: [
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: SvgPicture.asset(
+                  AppVectors.homepageHeroCard,
+                  width: 365,
+                ),
               ),
-            ),
-          ],
+              Align(
+                alignment: Alignment.bottomRight,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 60, bottom: 0),
+                  child: Image.asset(AppImages.homepageHeroImg),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -73,6 +79,7 @@ class _HomePageState extends State<HomePage>
     return TabBar(
       controller: _tabController,
       isScrollable: true,
+      tabAlignment: TabAlignment.start,
       labelColor: context.isDarkMode ? Colors.white : Colors.black,
       indicatorColor: AppColors.primary,
       padding: EdgeInsets.symmetric(vertical: 32, horizontal: 16),
