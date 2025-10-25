@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:spotify/domain/usecases/songs/get_disconver_songs.dart';
+import 'package:spotify/domain/usecases/songs/get_discover_songs.dart';
 import 'package:spotify/presentation/home/bloc/discover_songs_state.dart';
 import 'package:spotify/service_locator.dart';
 

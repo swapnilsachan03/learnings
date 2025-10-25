@@ -8,4 +8,9 @@ class SongsRepoImpl extends SongsRepo {
   Future<Either> getDiscoverSongs() async {
     return await sl<SongsFirebaseService>().getDiscoverSongs();
   }
+
+  @override
+  Future<Either> getRecommendedSongs() async {
+    return await sl<SongsFirebaseService>().getRecommendedSongs();
+  }
 }

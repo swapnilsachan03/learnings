@@ -6,6 +6,7 @@ import 'package:spotify/core/configs/assets/app_images.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
 import 'package:spotify/core/configs/theme/app_colors.dart';
 import 'package:spotify/presentation/home/widgets/discover_songs.dart';
+import 'package:spotify/presentation/home/widgets/recommended_songs.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -34,7 +35,12 @@ class _HomePageState extends State<HomePage>
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [_homepageHeroCard(), _tabs(), _tabsContent()],
+          children: [
+            _homepageHeroCard(),
+            _tabs(),
+            _tabsContent(),
+            RecommendedSongs(),
+          ],
         ),
       ),
     );
