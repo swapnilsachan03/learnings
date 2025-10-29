@@ -1,0 +1,28 @@
+services:
+  fastapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: yt_fastapi_container
+    ports:
+      - "8000:8000"
+    image: yt_fastapi_app
+    volumes:
+      - ./:/app
+    environment:
+      - DATABASE_URL=postgresql://postgres:pass123@db:5432/youtube-clone
+  
+  db:
+    image: postgres:16
+    container_name: yt_postgres_container
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: youtube-clone
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pass123
+    volumes:
+      - yt_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  yt_postgres_data:
