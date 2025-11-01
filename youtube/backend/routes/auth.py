@@ -2,6 +2,7 @@ import boto3
 
 from fastapi import APIRouter, Cookie, Depends, HTTPException, Response
 from db.db import get_db
+from db.middlewares.auth_middleware import get_current_user
 from db.models.user import User
 from helpers.auth_helper import get_secret_hash
 from pydantic_models.auth_models import (
@@ -181,3 +182,8 @@ def refresh_token(
 
     except Exception as e:
         raise HTTPException(400, f"Cognito signup exception: {e}")
+
+
+@router.get("/me")
+def get_profile(user=Depends(get_current_user)):
+    return {"message": "You're authenticated", "user": user}
