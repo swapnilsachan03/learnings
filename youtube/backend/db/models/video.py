@@ -33,3 +33,15 @@ class Video(Base):
         nullable=False,
         default=ProcessingStatus.PROCESSING,
     )
+
+    def to_dict(self):
+        result = {}
+
+        for column in self.__table__.columns:
+            value = getattr(self, column.name)
+            if isinstance(value, enum.Enum):
+                result[column.name] = value.value
+            else:
+                result[column.name] = value
+
+        return result

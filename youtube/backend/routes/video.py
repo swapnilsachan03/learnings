@@ -1,7 +1,9 @@
+import json
 from fastapi import APIRouter, Depends
 from sqlalchemy import or_
 from sqlalchemy.orm import Session
 from db.db import get_db
+from db.redis_db import redis_client
 from db.middlewares.auth_middleware import get_current_user
 from db.models.video import ProcessingStatus, Video, VisibilityStatus
 
@@ -32,7 +34,12 @@ def get_video_info(
     db: Session = Depends(get_db),
     user=Depends(get_current_user),
 ):
-    print(video_id)
+    cache_key = f"video:{video_id}"
+    cached_data = redis_client.get(cache_key)
+
+    if cached_data:
+        return json.loads(cached_data)
+
     video = (
         db.query(Video)
         .filter(
@@ -45,5 +52,7 @@ def get_video_info(
         )
         .first()
     )
+
+    redis_client.set(cache_key, json.dumps(video.to_dict()), ex=600)
 
     return video
