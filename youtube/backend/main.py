@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from db.base import Base
 from db.db import engine
-from routes import auth, upload
+from routes import auth, upload, video
 
 app = FastAPI()
 
@@ -19,6 +19,7 @@ app.add_middleware(
 
 app.include_router(auth.router, prefix="/auth")
 app.include_router(upload.router, prefix="/upload/video")
+app.include_router(video.router, prefix="/videos")
 
 
 @app.get("/")
