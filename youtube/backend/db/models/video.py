@@ -21,7 +21,7 @@ class Video(Base):
     id = Column(TEXT, primary_key=True, index=True)
     title = Column(TEXT)
     description = Column(TEXT)
-    user_id = Column(TEXT, ForeignKey("users.id"))
+    user_id = Column(TEXT, ForeignKey("users.cognito_sub"))
     video_s3_key = Column(TEXT)
     visibility = Column(
         Enum(VisibilityStatus),

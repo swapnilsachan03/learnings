@@ -10,3 +10,4 @@ class SecretKeys(BaseSettings):
     REGION_NAME: str = ""
     POSTGRES_DB_URL: str = ""
     AWS_RAW_VIDEOS_BUCKET: str = ""
+    AWS_THUMBNAILS_BUCKET: str = ""
